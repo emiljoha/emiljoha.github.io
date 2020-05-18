@@ -8,17 +8,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: main
-      - name: Checkout tools repo
-        uses: actions/checkout@v2
-        with:
-          repository: emiljoha/CurriculumVitae-Emil-Johansson
-          path: cv
-      - run: cd cv && make docker
-      - run: mkdir -p public
-      - run: mv cv/pdf/* public/
-      - run: mv main/content/* public/
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./main/content
