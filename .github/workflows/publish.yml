@@ -1,4 +1,4 @@
-name: Build LaTeX document
+name: Build and publish Github Pages site.
 on: [push]
 jobs:
   build_latex:
